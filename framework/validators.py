@@ -18,7 +18,6 @@ class Validator:
     @staticmethod
     def fail_if_errors(results: List[ValidationResult]) -> None:
         errors = [r for r in results if not r.passed]
-
         if errors:
             raise AssertionError(
                 "Data quality validation failed (one or more rules did not pass)."
