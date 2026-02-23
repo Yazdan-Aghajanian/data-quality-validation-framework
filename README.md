@@ -1,5 +1,7 @@
 # Data Quality Validation Framework
 
+[![CI](https://github.com/yazdan999/data-quality-validation-framework/actions/workflows/ci.yml/badge.svg)](https://github.com/yazdan999/data-quality-validation-framework/actions/workflows/ci.yml)
+
 CI-ready data quality validation framework for lakehouse pipelines.
 
 ## What it includes
