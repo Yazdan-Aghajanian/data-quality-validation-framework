@@ -11,9 +11,11 @@ def rule_no_null_customer_id() -> ValidationResult:
     return ValidationResult(
         rule_name="no_null_customer_id",
         passed=passed,
-        message="customer_id has no nulls"
-        if passed
-        else f"customer_id has {failed} nulls",
+        message=(
+            "customer_id has no nulls"
+            if passed
+            else f"customer_id has {failed} nulls"
+        ),
         failed_count=failed,
     )
 
@@ -24,7 +26,7 @@ def main() -> None:
             name="no_null_customer_id",
             check=rule_no_null_customer_id,
             severity="ERROR",
-        ),
+        )
     ]
 
     validator = Validator(rules)
