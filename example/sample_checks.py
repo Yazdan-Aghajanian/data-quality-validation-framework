@@ -8,10 +8,12 @@ def rule_no_null_customer_id() -> ValidationResult:
     failed = 0  # placeholder for demo
     passed = failed == 0
 
+    message = "customer_id has no nulls" if passed else f"customer_id has {failed} nulls"
+
     return ValidationResult(
         rule_name="no_null_customer_id",
         passed=passed,
-        message="customer_id has no nulls" if passed else f"customer_id has {failed} nulls",
+        message=message,
         failed_count=failed,
     )
 
@@ -37,3 +39,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    
