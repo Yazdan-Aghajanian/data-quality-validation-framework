@@ -6,7 +6,7 @@ from framework.rules import Rule, ValidationResult
 
 
 class Validator:
-    def __init__(self, rules: Iterable[Rule]):
+    def __init__(self, rules: Iterable[Rule]) -> None:
         self.rules = list(rules)
 
     def run(self) -> List[ValidationResult]:
@@ -17,6 +17,9 @@ class Validator:
 
     @staticmethod
     def fail_if_errors(results: List[ValidationResult]) -> None:
-        errors = [r for r in results if (not r.passed and r.failed_count >= 0)]
-        if any(not r.passed for r in errors):
-            raise AssertionError("Data quality validation failed (one or more rules did not pass).")
+        errors = [r for r in results if not r.passed]
+
+        if errors:
+            raise AssertionError(
+                "Data quality validation failed (one or more rules did not pass)."
+            )
