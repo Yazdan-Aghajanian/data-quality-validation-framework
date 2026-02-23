@@ -26,7 +26,7 @@ def main() -> None:
             name="no_null_customer_id",
             check=rule_no_null_customer_id,
             severity="ERROR",
-        )
+        ),
     ]
 
     validator = Validator(rules)
